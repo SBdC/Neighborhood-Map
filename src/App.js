@@ -5,7 +5,12 @@ import MapContainer from './MapContainer.js';
 import LocationList from './LocationList.js';
 import {GoogleApiWrapper} from 'google-maps-react';
 
+
 class App extends Component {
+
+
+
+
   render() {
     return (
       <div className="App">
@@ -25,5 +30,5 @@ class App extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCycO-mcdm4s7R0U4EsFYS-T7WhWy5Eb2E'
+  apiKey: 'AIzaSyDQVyeULB47LrpKKNRa4_3Eka6duAwqqoo'
 })(App)

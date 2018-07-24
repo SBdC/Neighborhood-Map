@@ -4,7 +4,7 @@ const Header = () => (
 
   <div>
     <header className="App-header">
-      <h1 className="App-title">Fun hangouts in Berlin Mitte</h1>
+      <h1 className="App-title">Independent Shops Berlin Mitte</h1>
     </header>
   </div>
 
