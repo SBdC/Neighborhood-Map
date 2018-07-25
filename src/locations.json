@@ -2,20 +2,20 @@
     "name": "Addeertz Menswear Store",
     "id": "Addeertz",
     "title": "Addeertz",
-    "position": {
-      "lat": 52.529600,
-      "long": 13.403557
-    }
+
+    "lat": 52.529600,
+    "lng": 13.403557
+
 
   },
   {
     "name": "Wolfen Store",
     "id": "Wolfen",
     "title": "Wolfen",
-    "position": {
-      "lat": 52.527909,
-      "long": 13.402229
-    }
+
+    "lat": 52.527909,
+    "lng": 13.402229
+
 
 
 
@@ -25,10 +25,10 @@
     "name": "Konk Store",
     "id": "Konk",
     "title": "Konk",
-    "position": {
-      "lat": 52.527913,
-      "long": 13.396979
-    }
+
+    "lat": 52.527913,
+    "lng": 13.396979
+
 
 
 
