@@ -1,5 +1,11 @@
-import React, { Component } from 'react';
-import { Map, InfoWindow, Marker } from 'google-maps-react';
+import React, {
+  Component
+} from 'react';
+import {
+  Map,
+  InfoWindow,
+  Marker
+} from 'google-maps-react';
 import Location from './locations.json';
 
 
@@ -9,9 +15,11 @@ class MapContainer extends Component {
     this.state = {
       locations: [],
       center: {
-        lat: 52.515580,
-        lng: 13.392806
-      }
+        lat: 52.529746,
+        lng: 13.401511
+      },
+      zoom:15,
+      InfoWindow: new InfoWindow()
     }
   }
 
@@ -21,18 +29,21 @@ class MapContainer extends Component {
   }
 
   getLocations() {
-  let locations = Location;
+    let locations = Location;
 
-  this.setState({
-    locations: locations
-  })
+    this.setState({
+      locations: locations
+    })
 
-console.log(this.state.locations, locations)
-}
+    console.log(this.state.locations, locations)
+  }
+
+
+
+
 
 
   render() {
-
 
 
 
@@ -43,16 +54,15 @@ console.log(this.state.locations, locations)
       <Map google={this.props.google}
         initialCenter={{lat: this.state.center.lat, lng: this.state.center.lng}}
          center={{lat: this.state.center.lat, lng: this.state.center.lng}}
-          zoom={15}
+          zoom={this.state.zoom}
           locations={this.state.locations}
         >
           {this.state.locations.map(location => (
                      <Marker
                        key={location.id}
-                       lat={location.position.lat}
-                       lng={location.position.lng}
+                       position={{lat:location.position.lat, lng:location.position.lng}}
                        name={location.name}
-                       eventHandler={this.eventHandler}
+                      
                      />
         ))}
 

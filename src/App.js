@@ -15,11 +15,12 @@ class App extends Component {
     return (
       <div className="App">
        <Header />
+
     <main style={{display:'flex'}}>
        <LocationList
        style={{flex: 2}}/>
        <MapContainer
-        style={{flex: 5}}
+        style={{flex: 6}}
         google={this.props.google}
 
        />

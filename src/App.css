@@ -1,6 +1,5 @@
 
 .App {
-
   text-align: center;
 
 }
@@ -10,10 +9,13 @@
   width: 100%;
   background-color: #222;
   height: 80px;
-  padding: 20px;
+  padding: 30px;
   color: white;
   text-transform: uppercase;
   letter-spacing: 6px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin: 0;
 }
 
 .App-title {
@@ -27,13 +29,15 @@
 
 
  height: 600px;
-
+ background-color: grey;
 
 }
 
 .App-location {
-
-
 height: 600px;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
  background-color: grey;
 }
