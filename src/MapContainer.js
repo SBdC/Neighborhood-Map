@@ -21,14 +21,14 @@ class MapContainer extends Component {
   }
 
   getLocations() {
-     Location.forEach(place => {
-      this.setState(prevState => ({
-        locations: [...prevState.locations, place]
-      }))
-    })
-    console.log(this.state.locations)
+  let locations = Location;
 
-  }
+  this.setState({
+    locations: locations
+  })
+
+console.log(this.state.locations, locations)
+}
 
 
   render() {
@@ -46,17 +46,15 @@ class MapContainer extends Component {
           zoom={15}
           locations={this.state.locations}
         >
-
-      {Location.map(location => (
-             <Marker
-               key={location.id}
-
-               name={location.name}
-               lat={location.lat}
-               lng={location.lng}
-               eventHandler={this.eventHandler}
-             />
-       ))}
+          {this.state.locations.map(location => (
+                     <Marker
+                       key={location.id}
+                       lat={location.position.lat}
+                       lng={location.position.lng}
+                       name={location.name}
+                       eventHandler={this.eventHandler}
+                     />
+        ))}
 
         <InfoWindow onClose={this.onInfoWindowClose}>
             <div>
