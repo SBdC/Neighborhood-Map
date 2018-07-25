@@ -1,11 +1,5 @@
-import React, {
-  Component
-} from 'react';
-import {
-  Map,
-  InfoWindow,
-  Marker
-} from 'google-maps-react';
+import React, { Component } from 'react';
+import { Map, InfoWindow, Marker } from 'google-maps-react';
 import Location from './locations.json';
 
 
@@ -19,11 +13,14 @@ class MapContainer extends Component {
         lng: 13.401511
       },
       zoom:15,
-      InfoWindow: new InfoWindow()
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {},
     }
   }
 
   componentDidMount() {
+
     this.getLocations();
 
   }
@@ -38,37 +35,71 @@ class MapContainer extends Component {
     console.log(this.state.locations, locations)
   }
 
+  mapClicked(mapProps, map, clickEvent) {
+    this.setState({
+      center: {
+        lat: map.center.lat(),
+        lng: map.center.lng()
+      }
+    })
+    this.getLocations();
+  }
 
 
+  onMapClicked = (props) => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      })
+    }
+  };
 
+  centerMoved(mapProps, map) {
+    console.log('dragging')
+  }
 
+  onMarkerClick = (props, marker, e) =>
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
 
   render() {
 
+const  {style, google} = this.props
+const  { zoom, locations} = this.state
 
 
     return (
 
-      <div style={this.props.style}>
+      <div style={style}>
       <div className="App-map">
-      <Map google={this.props.google}
+      <Map google={google}
         initialCenter={{lat: this.state.center.lat, lng: this.state.center.lng}}
          center={{lat: this.state.center.lat, lng: this.state.center.lng}}
           zoom={this.state.zoom}
-          locations={this.state.locations}
+          locations={locations}
+           onClick={this.onMapClicked}
+           onDragend={this.centerMoved}
         >
           {this.state.locations.map(location => (
                      <Marker
                        key={location.id}
                        position={{lat:location.position.lat, lng:location.position.lng}}
                        name={location.name}
-                      
+                       onClick={this.onMarkerClick}
                      />
         ))}
 
-        <InfoWindow onClose={this.onInfoWindowClose}>
+        <InfoWindow
+          onOpen={this.windowHasOpened}
+          onClose={this.onInfoWindowClose}
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}>
             <div>
-              {/* <h1>{this.state.selectedPlace.name}</h1> */}
+              <h1>{this.state.selectedPlace.name}</h1>
             </div>
         </InfoWindow>
       </Map>
