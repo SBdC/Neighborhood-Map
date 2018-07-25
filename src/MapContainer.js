@@ -32,7 +32,6 @@ class MapContainer extends Component {
       locations: locations
     })
 
-    console.log(this.state.locations, locations)
   }
 
   mapClicked(mapProps, map, clickEvent) {
@@ -62,6 +61,7 @@ class MapContainer extends Component {
   onMarkerClick = (props, marker, e) =>
     this.setState({
       selectedPlace: props,
+
       activeMarker: marker,
       showingInfoWindow: true
     });
@@ -69,7 +69,8 @@ class MapContainer extends Component {
   render() {
 
 const  {style, google} = this.props
-const  { zoom, locations} = this.state
+const  { zoom, locations, selectedPlace} = this.state
+console.log(selectedPlace)
 
 
     return (
@@ -90,6 +91,7 @@ const  { zoom, locations} = this.state
                        position={{lat:location.position.lat, lng:location.position.lng}}
                        name={location.name}
                        onClick={this.onMarkerClick}
+                      title={location.title}
                      />
         ))}
 
@@ -99,7 +101,8 @@ const  { zoom, locations} = this.state
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}>
             <div>
-              <h1>{this.state.selectedPlace.name}</h1>
+              <h1>{selectedPlace.name}</h1>
+              <p>{selectedPlace.title}</p>
             </div>
         </InfoWindow>
       </Map>

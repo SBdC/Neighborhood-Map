@@ -33,11 +33,21 @@
 
 }
 
-.App-location {
+.App-location-list {
 height: 600px;
   margin: 0;
   overflow-x: hidden;
   overflow-y: hidden;
 
  background-color: grey;
+}
+
+
+
+.search-locations-bar input {
+  width: 100%;
+  padding: 15px 10px;
+  font-size: 1.25em;
+  border: none;
+  outline: none;
 }
