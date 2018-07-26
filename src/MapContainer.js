@@ -61,7 +61,6 @@ class MapContainer extends Component {
   onMarkerClick = (props, marker, e) =>
     this.setState({
       selectedPlace: props,
-
       activeMarker: marker,
       showingInfoWindow: true
     });
@@ -85,13 +84,14 @@ console.log(selectedPlace)
            onClick={this.onMapClicked}
            onDragend={this.centerMoved}
         >
-          {this.state.locations.map(location => (
+          {locations.map(location => (
                      <Marker
                        key={location.id}
                        position={{lat:location.position.lat, lng:location.position.lng}}
                        name={location.name}
                        onClick={this.onMarkerClick}
                       title={location.title}
+
                      />
         ))}
 

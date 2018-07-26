@@ -1,22 +1,56 @@
-import React from 'react'
+import React, {
+  Component
+} from 'react';
+import Location from './locations.json';
 
-const LocationList = (props) => (
 
-  <div style={props.style}>
-    <div className="App-location-list">
-      <div className="search-locations">
-        <form className="search-locations-bar">
-                   {/* {JSON.stringify(this.state)} */}
-         <input type="text"
-                placeholder="Search for a local independet business"
+class LocationList extends Component {
 
-        />
-    </form>
+  constructor(props) {
+    super(props)
+    this.state = {
+      locations: Location
+    }
+  }
 
-    </div>
-  </div>
-  </div>
+    onListClicked (mapProps, map) {
+      console.log('i am being clicked'+this.props.location.id)
+    }
 
-)
+  render() {
+
+
+    const { locations }  = this.state
+
+    return (
+      <div style={this.props.style}>
+        <div className="App-location-list">
+          <div className="search-locations">
+            <form className="search-locations-bar">
+                       {/* {JSON.stringify(this.state)} */}
+             <input
+               type="text"
+               placeholder="Search for a local independet business"
+               />
+             </form>
+             <div>
+
+               <ul className=".location-list">
+                 {locations.map(location => (
+                    <li  key={location.id}
+                          onClick={this.onlistClick}>
+                          {location.name}
+                    </li>
+               ))}
+           </ul>
+           </div>
+        </div>
+      </div>
+      </div>
+
+    );
+  }
+}
+
 
 export default LocationList
