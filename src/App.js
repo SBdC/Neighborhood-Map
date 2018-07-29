@@ -33,12 +33,13 @@ class App extends Component {
     });
   }
 
-  onlistClick = id => {
-    let location = id;
+  onlistClick = (id, name) => {
+    let locationId = id;
+    let locationName = name;
     this.setState({
-      currentLocation: location
+      currentLocation: [locationId, locationName]
     });
-    console.log(location);
+    console.log(locationId );
   };
 
   render() {
@@ -61,9 +62,9 @@ class App extends Component {
               onClick={this.onlistClick}
             />
           </section>
-
+          <section style={{ flex:5 }}>
           <MapContainer
-            style={{ flex: 6 }}
+
             google={this.props.google}
             locations={this.state.locations}
             currentLocation={this.state.currentLocation}
@@ -72,6 +73,7 @@ class App extends Component {
           <Info
             currentLocation={this.state.currentLocation}
           />
+        </section>
         </main>
       </div>
     );

@@ -40,7 +40,7 @@ class MapContainer extends Component {
 
 
   render() {
-    const { zoom, style, google, locations } = this.props;
+    const { zoom, style, google, locations, currentLocation } = this.props;
     const { selectedPlace } = this.state;
 
     return (
@@ -48,9 +48,10 @@ class MapContainer extends Component {
         <div className="App-map">
           <Map
             google={google}
+            containerStyle={ {width: '100%', height: '100vh', position: 'relative'} }
             initialCenter={{ lat: 52.529746, lng: 13.401511}}
             center={{ lat: 52.529746, lng: 13.401511}}
-            zoom={zoom}
+            zoom={(currentLocation)?18:zoom}
             locations={locations}
             onClick={this.onMapClicked}
             onDragend={this.centerMoved}
@@ -65,7 +66,7 @@ class MapContainer extends Component {
                 name={location.name}
                 onClick={this.onMarkerClick}
                 title={location.title}
-                animation={ google.maps.Animation.BOUNCE }
+                animation={ google.maps.Animation.DROP }
               />
             ))}
 
