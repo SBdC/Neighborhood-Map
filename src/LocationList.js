@@ -8,7 +8,7 @@ const LocationList = (props) => (
 
             <ul className=".location-list">
               {props.locations.map(location => (
-                <li key={location.id}  name={location.name} onClick={() => props.onClick(location.id, location.name)}>
+                <li key={location.id}  name={location.name} onClick={() => props.onClick({...location})}>
                   {location.name}
                 </li>
               ))}

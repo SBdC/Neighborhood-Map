@@ -6,8 +6,9 @@ class Info extends Component {
     const { currentLocation } = this.props;
     return currentLocation ? (
       <div className="location-info">
-        <h3>{currentLocation[0]}</h3>
-        <h4>{currentLocation[1]}</h4>
+        <h3>{currentLocation.name}</h3>
+        <h4>{currentLocation.id}</h4>
+          <h5>{currentLocation.title}</h5>
       </div>
     ) : (
       <div className="location-info-none" />

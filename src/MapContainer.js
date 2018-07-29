@@ -50,7 +50,7 @@ class MapContainer extends Component {
             google={google}
             containerStyle={ {width: '100%', height: '100vh', position: 'relative'} }
             initialCenter={{ lat: 52.529746, lng: 13.401511}}
-            center={{ lat: 52.529746, lng: 13.401511}}
+            center={ (currentLocation) ? {lat: `${currentLocation.position.lat}`, lng: `${currentLocation.position.lng}`} : {lat : 52.529746, lng : 13.401511} }
             zoom={(currentLocation)?18:zoom}
             locations={locations}
             onClick={this.onMapClicked}

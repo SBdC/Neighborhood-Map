@@ -33,13 +33,12 @@ class App extends Component {
     });
   }
 
-  onlistClick = (id, name) => {
-    let locationId = id;
-    let locationName = name;
+  onlistClick = (location) => {
+
     this.setState({
-      currentLocation: [locationId, locationName]
+      currentLocation: location
     });
-    console.log(locationId );
+    console.log(location);
   };
 
   render() {
