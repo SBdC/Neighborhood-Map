@@ -8,20 +8,12 @@ class MapContainer extends Component {
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {}
+      selectedPlace: {},
+
     };
   }
 
 
-  mapClicked(mapProps, map, clickEvent) {
-    this.setState({
-      center: {
-        lat: map.center.lat(),
-        lng: map.center.lng()
-      }
-    });
-    this.getLocations();
-  }
 
   onMapClicked = props => {
     if (this.state.showingInfoWindow) {
@@ -37,15 +29,19 @@ class MapContainer extends Component {
   }
 
   onMarkerClick = (props, marker, e) =>
-    this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
-    });
+  this.setState({
+    selectedPlace: props,
+    activeMarker: marker,
+    showingInfoWindow: true
+  });
+
+
+
+
 
   render() {
     const { zoom, style, google, locations } = this.props;
-    const { selectedPlace} = this.state;
+    const { selectedPlace } = this.state;
 
     return (
       <div style={style}>
@@ -69,6 +65,7 @@ class MapContainer extends Component {
                 name={location.name}
                 onClick={this.onMarkerClick}
                 title={location.title}
+                animation={ google.maps.Animation.BOUNCE }
               />
             ))}
 

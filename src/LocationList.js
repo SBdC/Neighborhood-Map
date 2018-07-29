@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+
 
 const LocationList = (props) => (
 
@@ -7,7 +8,7 @@ const LocationList = (props) => (
 
             <ul className=".location-list">
               {props.locations.map(location => (
-                <li key={location.id} onClick={this.onlistClick}>
+                <li key={location.id}  name={location.name} onClick={() => props.onClick(location.id)}>
                   {location.name}
                 </li>
               ))}

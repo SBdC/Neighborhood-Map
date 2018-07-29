@@ -42,6 +42,19 @@ height: 600px;
  background-color: grey;
 }
 
+.location-info{
+  display:absolute;
+  top: 20px;
+  left:-400px;
+  background-color: white;
+  width: 150px;
+  height:150px;
+  z-index: 9999;
+}
+.location-info-none{
+  display:none;
+
+}
 
 
 .search-locations-bar input {

@@ -5,6 +5,7 @@ import MapContainer from "./MapContainer.js";
 import LocationList from "./LocationList.js";
 import { GoogleApiWrapper } from "google-maps-react";
 import Location from "./locations.json";
+import Info from "./InfoWindow.js";
 
 class App extends Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class App extends Component {
         lat: 52.529746,
         lng: 13.401511
       },
-      zoom: 15
+      zoom: 15,
+      currentLocation: ''
     };
   }
 
@@ -31,7 +33,17 @@ class App extends Component {
     });
   }
 
+  onlistClick = id => {
+    let location = id;
+    this.setState({
+      currentLocation: location
+    });
+    console.log(location);
+  };
+
   render() {
+
+
     return (
       <div className="App">
         <Header />
@@ -44,13 +56,21 @@ class App extends Component {
                 placeholder="Search for a local independet business"
               />
             </form>
-            <LocationList locations={this.state.locations} />
+            <LocationList
+              locations={this.state.locations}
+              onClick={this.onlistClick}
+            />
           </section>
 
           <MapContainer
             style={{ flex: 6 }}
             google={this.props.google}
             locations={this.state.locations}
+            currentLocation={this.state.currentLocation}
+
+          />
+          <Info
+            currentLocation={this.state.currentLocation}
           />
         </main>
       </div>
