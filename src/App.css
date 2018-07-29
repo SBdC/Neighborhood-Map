@@ -28,13 +28,12 @@
 .App-map {
 
 
- height: 600px;
  background-color: grey;
 
 }
 
 .App-location-list {
-height: 600px;
+height: 100vh;
   margin: 0;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -43,12 +42,13 @@ height: 600px;
 }
 
 .location-info{
-  display:absolute;
-  top: 20px;
-  left:-400px;
+  position: absolute;
+  bottom: 20vh;
+
+  width: 300px;
+  height: 20vh;
   background-color: white;
-  width: 150px;
-  height:150px;
+
   z-index: 9999;
 }
 .location-info-none{
