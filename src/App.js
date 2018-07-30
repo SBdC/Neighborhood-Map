@@ -17,28 +17,28 @@ class App extends Component {
         lng: 13.401511
       },
       zoom: 15,
-      currentLocation: "",
+      currentLocation:"",
       photos: [],
-      photoTitle:''
+
     };
   }
 
   componentDidMount() {
     this.getLocations();
-    this.getFlickrPhoto();
+
   }
 
   getFlickrPhoto() {
-    const url =
-      `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=ea70cd6f2b3058e251b48212d2fe6d08&tags='${this.state.photoTitle}'&per_page=1&page=1&format=json&nojsoncallback=1`;
 
+    const url =
+       `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=ea70cd6f2b3058e251b48212d2fe6d08&tags='${this.state.currentLocation.name}'&per_page=1&page=1&format=json&nojsoncallback=1`;
     fetch(url)
       .then(response => {
         return response.json();
       })
 
       .then(data => {
-        console.log(JSON.stringify(data));
+        console.log(url);
         let picArray = data.photos.photo.map(pic => {
           let srcPath =
             "https://farm" +
@@ -69,11 +69,12 @@ class App extends Component {
   }
 
   onlistClick = location => {
-    this.setState({
-      currentLocation: location,
-      photoTitle: location.name
-    });
-  };
+     this.setState({
+       currentLocation: location,
+     },
+  	this.getFlickrPhoto);}
+
+
 
   render() {
     return (
@@ -102,7 +103,7 @@ class App extends Component {
             <Info
               currentLocation={this.state.currentLocation}
               photos={this.state.photos}
-              photoTitle={this.state.photoTitle}
+            
             />
           </section>
         </main>
