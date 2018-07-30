@@ -18,7 +18,8 @@ class App extends Component {
       },
       zoom: 15,
       currentLocation: "",
-      photos: []
+      photos: [],
+      photoTitle:''
     };
   }
 
@@ -29,7 +30,7 @@ class App extends Component {
 
   getFlickrPhoto() {
     const url =
-      "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=ea70cd6f2b3058e251b48212d2fe6d08&tags=berlin&per_page=1&format=json&nojsoncallback=1";
+      `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=ea70cd6f2b3058e251b48212d2fe6d08&tags='${this.state.photoTitle}'&per_page=1&page=1&format=json&nojsoncallback=1`;
 
     fetch(url)
       .then(response => {
@@ -69,9 +70,9 @@ class App extends Component {
 
   onlistClick = location => {
     this.setState({
-      currentLocation: location
+      currentLocation: location,
+      photoTitle: location.name
     });
-    console.log(location);
   };
 
   render() {
@@ -101,6 +102,7 @@ class App extends Component {
             <Info
               currentLocation={this.state.currentLocation}
               photos={this.state.photos}
+              photoTitle={this.state.photoTitle}
             />
           </section>
         </main>

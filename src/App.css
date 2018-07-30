@@ -46,7 +46,7 @@ height: 100vh;
   bottom: 20vh;
 
   width: 300px;
-  height: 20vh;
+  height: 40vh;
   background-color: white;
 
   z-index: 9999;
@@ -55,7 +55,9 @@ height: 100vh;
   display:none;
 
 }
-
+.flickerphoto{
+  width: 100px;
+}
 
 .search-locations-bar input {
   width: 100%;
