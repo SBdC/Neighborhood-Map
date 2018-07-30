@@ -17,24 +17,57 @@ class App extends Component {
         lng: 13.401511
       },
       zoom: 15,
-      currentLocation: ''
+      currentLocation: "",
+      photos: []
     };
   }
 
   componentDidMount() {
     this.getLocations();
+    this.getFlickrPhoto();
+  }
+
+  getFlickrPhoto() {
+    const url =
+      "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=ea70cd6f2b3058e251b48212d2fe6d08&tags=berlin&per_page=1&format=json&nojsoncallback=1";
+
+    fetch(url)
+      .then(response => {
+        return response.json();
+      })
+
+      .then(data => {
+        console.log(JSON.stringify(data));
+        let picArray = data.photos.photo.map(pic => {
+          let srcPath =
+            "https://farm" +
+            pic.farm +
+            ".staticflickr.com/" +
+            pic.server +
+            "/" +
+            pic.id +
+            "_" +
+            pic.secret +
+            ".jpg";
+          return srcPath;
+        });
+
+        this.setState({
+          photos: picArray
+        });
+      })
+
+      .catch(error => console.log(error));
   }
 
   getLocations() {
     let locations = Location;
-
     this.setState({
       locations: locations
     });
   }
 
-  onlistClick = (location) => {
-
+  onlistClick = location => {
     this.setState({
       currentLocation: location
     });
@@ -42,8 +75,6 @@ class App extends Component {
   };
 
   render() {
-
-
     return (
       <div className="App">
         <Header />
@@ -61,18 +92,17 @@ class App extends Component {
               onClick={this.onlistClick}
             />
           </section>
-          <section style={{ flex:5 }}>
-          <MapContainer
-
-            google={this.props.google}
-            locations={this.state.locations}
-            currentLocation={this.state.currentLocation}
-
-          />
-          <Info
-            currentLocation={this.state.currentLocation}
-          />
-        </section>
+          <section style={{ flex: 5 }}>
+            <MapContainer
+              google={this.props.google}
+              locations={this.state.locations}
+              currentLocation={this.state.currentLocation}
+            />
+            <Info
+              currentLocation={this.state.currentLocation}
+              photos={this.state.photos}
+            />
+          </section>
         </main>
       </div>
     );

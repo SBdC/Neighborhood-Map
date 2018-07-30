@@ -1,36 +1,59 @@
-[{
-    "name": "Addeertz Menswear Store",
+[
+  {
+    "name": "Addeertz",
     "id": "Addeertz",
-    "title": "Store",
+    "type": "Store",
+    "title": "Menswear ",
+    "address": "Torstrasse 106, 10119 Berlin",
     "position": {
-      "lat": 52.529600,
+      "lat": 52.5296,
       "lng": 13.403557
     }
-
   },
   {
-    "name": "Wolfen Store",
+    "name": "Wolfen",
     "id": "Wolfen",
-    "title": "Store",
+    "type": "Store",
+    "title": "Womenswear / Menswear",
+    "address": "Augustrasse 41, 10119 Berlin",
     "position": {
       "lat": 52.527909,
       "lng": 13.402229
     }
-
-
-
   },
 
   {
-    "name": "Konk Store",
+    "name": "Konk ",
     "id": "Konk",
-    "title": "Store",
+    "type": "Store",
+    "title": "Womenswear",
+    "address": "Kleine Hamburger Str. 15, 10117 Berlin",
     "position": {
       "lat": 52.527913,
       "lng": 13.396979
     }
+  },
 
-
-
+  {
+    "name": "Garments",
+    "id": "Garments",
+    "type": "Store",
+    "title": "Vintage",
+    "address": "Linienstrasse 204, 10119 Berlin",
+    "position": {
+      "lat": 52.529497,
+      "lng": 13.402497
+    }
+  },
+  {
+    "name": "Starstyling",
+    "id": "Starstyling",
+    "type": "Store",
+    "title": "Womenswear / Menswear",
+    "address": "Mulackstraße 4, 10119 Berlin",
+    "position": {
+      "lat": 52.528105,
+      "lng": 13.407322
+    }
   }
 ]

@@ -13,6 +13,8 @@ const LocationList = (props) => (
                 </li>
               ))}
             </ul>
+
+
           </div>
         </div>
 
