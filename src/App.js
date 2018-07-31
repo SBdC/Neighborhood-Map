@@ -1,25 +1,31 @@
 import React, { Component } from "react";
+import { GoogleApiWrapper } from "google-maps-react";
 import "./App.css";
 import Header from "./Header.js";
 import MapContainer from "./MapContainer.js";
 import LocationList from "./LocationList.js";
-import { GoogleApiWrapper } from "google-maps-react";
 import Location from "./locations.json";
 import Info from "./InfoWindow.js";
 import * as FlickrAPI from "./utils/FlickrAPI";
+// import Search from "./Search.js";
+// import escapeRegExp from 'escape-string-regexp';
+// import _ from 'lodash'
+
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      locations: [],
+     locations: [],
       center: {
         lat: 52.529746,
         lng: 13.401511
       },
       zoom: 15,
-      currentLocation: "",
-      photos: []
+      currentLocation: '',
+      photos: [],
+      query: '',
+
     };
   }
 
@@ -68,19 +74,24 @@ class App extends Component {
     );
   };
 
+  updateQuery = (query) => {
+
+     this.setState({ query: query.trim() })
+   }
+
+
+
+
   render() {
+
+
     return (
       <div className="App">
         <Header />
         <main style={{ display: "flex" }}>
           <section style={{ flex: 2 }}>
-            <form className="search-locations-bar">
-              {/* {JSON.stringify(this.state)} */}
-              <input
-                type="text"
-                placeholder="Search for a local independet business"
-              />
-            </form>
+
+
             <LocationList
               locations={this.state.locations}
               onClick={this.onlistClick}
