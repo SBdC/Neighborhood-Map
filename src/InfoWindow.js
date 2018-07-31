@@ -11,7 +11,7 @@ class Info extends Component {
         <h4>{currentLocation.id}</h4>
           <h5>{currentLocation.title}</h5>
 
-          <div className="flickerphoto"><img  alt={currentLocation.name} src={photos}></img></div>
+          <div ><img  className="flickerPhoto" alt={currentLocation.name} src={photos}></img></div>
       </div>
 
     ) : (

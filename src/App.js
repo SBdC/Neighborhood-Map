@@ -6,6 +6,7 @@ import LocationList from "./LocationList.js";
 import { GoogleApiWrapper } from "google-maps-react";
 import Location from "./locations.json";
 import Info from "./InfoWindow.js";
+import * as FlickrAPI from "./utils/FlickrAPI";
 
 class App extends Component {
   constructor(props) {
@@ -17,28 +18,18 @@ class App extends Component {
         lng: 13.401511
       },
       zoom: 15,
-      currentLocation:"",
-      photos: [],
-
+      currentLocation: "",
+      photos: []
     };
   }
 
   componentDidMount() {
     this.getLocations();
-
   }
 
   getFlickrPhoto() {
-
-    const url =
-       `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=ea70cd6f2b3058e251b48212d2fe6d08&tags='${this.state.currentLocation.name}'&per_page=1&page=1&format=json&nojsoncallback=1`;
-    fetch(url)
-      .then(response => {
-        return response.json();
-      })
-
+    FlickrAPI.getFlickrPhoto(this.state.currentLocation.name)
       .then(data => {
-        console.log(url);
         let picArray = data.photos.photo.map(pic => {
           let srcPath =
             "https://farm" +
@@ -50,6 +41,7 @@ class App extends Component {
             "_" +
             pic.secret +
             ".jpg";
+
           return srcPath;
         });
 
@@ -57,7 +49,6 @@ class App extends Component {
           photos: picArray
         });
       })
-
       .catch(error => console.log(error));
   }
 
@@ -69,12 +60,13 @@ class App extends Component {
   }
 
   onlistClick = location => {
-     this.setState({
-       currentLocation: location,
-     },
-  	this.getFlickrPhoto);}
-
-
+    this.setState(
+      {
+        currentLocation: location
+      },
+      this.getFlickrPhoto
+    );
+  };
 
   render() {
     return (
@@ -103,7 +95,6 @@ class App extends Component {
             <Info
               currentLocation={this.state.currentLocation}
               photos={this.state.photos}
-            
             />
           </section>
         </main>
