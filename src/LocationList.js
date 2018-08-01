@@ -10,6 +10,7 @@ class LocationList extends Component {
       <div style={this.props.style}>
         <div className="App-location-list">
         <Search {...this.props} />
+      
           <ul className=".location-list">
             {filteredLocations.map(location => (
               <li

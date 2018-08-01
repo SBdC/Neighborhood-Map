@@ -5,12 +5,14 @@ class Search extends Component {
     return (
       <div className="input-group">
         <form className="search-locations-bar">
-          {JSON.stringify(this.props.query)}
+        
           <input
             type="text"
             placeholder="Search for a local independet business"
             onChange={(event) => this.props.updateQuery(event.target.value)}
             value={this.props.query}
+
+
           />
         </form>
       </div>

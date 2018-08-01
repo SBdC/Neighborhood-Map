@@ -8,8 +8,6 @@ import LocationList from "./LocationList.js";
 import Location from "./locations.json";
 import Info from "./InfoWindow.js";
 
-
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -20,16 +18,16 @@ class App extends Component {
         lng: 13.401511
       },
       zoom: 15,
-      currentLocation: '',
+      currentLocation: "",
       photos: [],
-      query: '',
+      query: "",
       filteredLocations: []
-
     };
   }
 
   componentDidMount() {
     this.getLocations();
+
   }
 
   getFlickrPhoto() {
@@ -60,7 +58,8 @@ class App extends Component {
   getLocations() {
     let locations = Location;
     this.setState({
-      locations: locations
+      locations: locations,
+      filteredLocations: locations
     });
   }
 
@@ -73,30 +72,26 @@ class App extends Component {
     );
   };
 
-
-
   updateQuery = (query) => {
-    console.log('yo')
-      this.setState({ query })
+    console.log("yo");
+    this.setState({ query });
+
+    if (query) {
       const filteredLocations = this.state.locations.filter(location => {
-      const loc = location.name.toLowerCase();
-      const q= query.toLowerCase();
-
-      return (
-        loc.indexOf(q) !== -1
-      );
-
-    });
-    this.setState({ filteredLocations });
-}
+        const loc = location.name.toLowerCase();
+        const q = query.toLowerCase();
+        return loc.indexOf(q) !==-1;
+      });
+      this.setState({ filteredLocations });
+    } else {
+      this.setState({
+        filteredLocations: this.state.locations
+      });
+    }
+  };
 
   render() {
-
-
-
-
     return (
-
       <div className="App">
         <Header />
         <main style={{ display: "flex" }}>
@@ -114,7 +109,6 @@ class App extends Component {
               google={this.props.google}
               locations={this.state.locations}
               currentLocation={this.state.currentLocation}
-
             />
             <Info
               currentLocation={this.state.currentLocation}
