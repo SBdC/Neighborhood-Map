@@ -1,25 +1,31 @@
-import React from "react";
+import React, { Component } from "react";
+import Search from "./Search.js";
 
+class LocationList extends Component {
 
-const LocationList = (props) => (
+  render() {
+    const { filteredLocations } = this.props;
 
-    <div style={props.style}>
-      <div className="App-location-list">
-
-            <ul className=".location-list">
-              {props.locations.map(location => (
-                <li key={location.id}  name={location.name} onClick={() => props.onClick({...location})}>
-                  {location.name}
-                </li>
-              ))}
-            </ul>
-
-
-          </div>
+    return  (
+      <div style={this.props.style}>
+        <div className="App-location-list">
+        <Search {...this.props} />
+          <ul className=".location-list">
+            {filteredLocations.map(location => (
+              <li
+                key={location.id}
+                name={location.name}
+                onClick={() => this.props.onClick({ ...location })}
+              >
+                {location.name}
+              </li>
+            ))}
+          </ul>
         </div>
+</div>
 
-)
-
-
+    )
+  }
+}
 
 export default LocationList;

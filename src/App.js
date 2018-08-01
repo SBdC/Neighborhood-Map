@@ -1,12 +1,14 @@
 import React, { Component } from "react";
+import { GoogleApiWrapper } from "google-maps-react";
+import * as FlickrAPI from "./utils/FlickrAPI";
 import "./App.css";
 import Header from "./Header.js";
 import MapContainer from "./MapContainer.js";
 import LocationList from "./LocationList.js";
-import { GoogleApiWrapper } from "google-maps-react";
 import Location from "./locations.json";
 import Info from "./InfoWindow.js";
-import * as FlickrAPI from "./utils/FlickrAPI";
+
+
 
 class App extends Component {
   constructor(props) {
@@ -18,8 +20,11 @@ class App extends Component {
         lng: 13.401511
       },
       zoom: 15,
-      currentLocation: "",
-      photos: []
+      currentLocation: '',
+      photos: [],
+      query: '',
+      filteredLocations: []
+
     };
   }
 
@@ -68,22 +73,40 @@ class App extends Component {
     );
   };
 
+
+
+  updateQuery = (query) => {
+    console.log('yo')
+      this.setState({ query })
+      const filteredLocations = this.state.locations.filter(location => {
+      const loc = location.name.toLowerCase();
+      const q= query.toLowerCase();
+
+      return (
+        loc.indexOf(q) !== -1
+      );
+
+    });
+    this.setState({ filteredLocations });
+}
+
   render() {
+
+
+
+
     return (
+
       <div className="App">
         <Header />
         <main style={{ display: "flex" }}>
           <section style={{ flex: 2 }}>
-            <form className="search-locations-bar">
-              {/* {JSON.stringify(this.state)} */}
-              <input
-                type="text"
-                placeholder="Search for a local independet business"
-              />
-            </form>
             <LocationList
               locations={this.state.locations}
               onClick={this.onlistClick}
+              updateQuery={this.updateQuery}
+              query={this.state.query}
+              filteredLocations={this.state.filteredLocations}
             />
           </section>
           <section style={{ flex: 5 }}>
@@ -91,6 +114,7 @@ class App extends Component {
               google={this.props.google}
               locations={this.state.locations}
               currentLocation={this.state.currentLocation}
+
             />
             <Info
               currentLocation={this.state.currentLocation}
