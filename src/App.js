@@ -56,6 +56,9 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+
+  // get locations from json and makes the list show all locations
+
   getLocations() {
     let locations = Location;
     this.setState({
@@ -63,6 +66,9 @@ class App extends Component {
       filteredLocations: locations
     });
   }
+
+  // Click function that makes extra info appear
+
 
   onlistClick = location => {
     this.setState(
@@ -73,8 +79,11 @@ class App extends Component {
     );
   };
 
+
+  // Search function
+
   updateQuery = (query) => {
-    console.log("yo");
+
     this.setState({ query });
 
     if (query) {
@@ -120,7 +129,9 @@ class App extends Component {
               google={this.props.google}
               locations={this.state.locations}
               currentLocation={this.state.currentLocation}
+
             />
+            {/* / Extra Infowindow that appears when clicking on the list*/}
             <Info
               currentLocation={this.state.currentLocation}
               photos={this.state.photos}

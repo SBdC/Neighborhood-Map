@@ -45,8 +45,6 @@ class MapContainer extends Component {
 
 
 
-
-
   render() {
     const { zoom, style, google, locations, currentLocation} = this.props;
     const { selectedPlace, center } = this.state;
@@ -65,19 +63,18 @@ class MapContainer extends Component {
               lat: this.state.initialCenter.lag,
               lng: this.state.initialCenter.lag
             }}
-            center={
-              currentLocation
-                ? {
+
+            center={ currentLocation ? {
                     lat: `${currentLocation.position.lat}`,
                     lng: `${currentLocation.position.lng}`
-                  }
-                : { lat: `${center.lat}`, lng: `${center.lng}` }
-            }
+                  } : { lat: `${center.lat}`, lng: `${center.lng}` }}
             zoom={currentLocation ? 18 : zoom}
             locations={locations}
             onClick={this.onMapClicked}
             onDragend={this.centerMoved}
           >
+
+            
             {currentLocation ? (
               <Marker
                 key={currentLocation.id}
