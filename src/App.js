@@ -22,6 +22,7 @@ class App extends Component {
       photos: [],
       query: "",
       filteredLocations: []
+
     };
   }
 
@@ -90,6 +91,16 @@ class App extends Component {
     }
   };
 
+
+
+  closeInfo = () => {
+    this.setState({
+      currentLocation: '',
+
+  });
+};
+
+
   render() {
     return (
       <div className="App">
@@ -113,6 +124,7 @@ class App extends Component {
             <Info
               currentLocation={this.state.currentLocation}
               photos={this.state.photos}
+              closeInfo={this.closeInfo}
             />
           </section>
         </main>
