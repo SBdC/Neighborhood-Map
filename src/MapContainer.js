@@ -58,19 +58,41 @@ class MapContainer extends Component {
             onClick={this.onMapClicked}
             onDragend={this.centerMoved}
           >
-            {locations.map(location => (
+            {(currentLocation) ?  (
+
               <Marker
-                key={location.id}
+                key={currentLocation.id}
                 position={{
-                  lat: location.position.lat,
-                  lng: location.position.lng
+                  lat: currentLocation.position.lat,
+                  lng: currentLocation.position.lng
                 }}
-                name={location.name}
+                name={currentLocation.name}
                 onClick={this.onMarkerClick}
-                title={location.title}
+                title={currentLocation.title}
                 animation={ google.maps.Animation.DROP }
               />
-            ))}
+
+
+         ) : (
+
+           locations.map(location => (
+             <Marker
+               key={location.id}
+               position={{
+                 lat: location.position.lat,
+                 lng: location.position.lng
+               }}
+               name={location.name}
+               onClick={this.onMarkerClick}
+               title={location.title}
+              
+             />
+           ))
+         )}
+
+
+
+
 
             <InfoWindow
               onOpen={this.windowHasOpened}
