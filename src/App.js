@@ -80,6 +80,17 @@ class App extends Component {
   };
 
 
+  selectedMarker = location => {
+    this.setState(
+      {
+        currentLocation: location
+      },
+      this.getFlickrPhoto
+    );
+  };
+
+
+
   // Search function
 
   updateQuery = (query) => {
@@ -129,6 +140,8 @@ class App extends Component {
               google={this.props.google}
               locations={this.state.locations}
               currentLocation={this.state.currentLocation}
+              onClick={this.selectedMarker}
+              filteredLocations={this.state.filteredLocations}
 
             />
             {/* / Extra Infowindow that appears when clicking on the list*/}

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Map, InfoWindow, Marker } from "google-maps-react";
-import Info from "./InfoWindow.js";
+import { Map, Marker } from "google-maps-react";
 
 class MapContainer extends Component {
   constructor(props) {
@@ -8,7 +7,7 @@ class MapContainer extends Component {
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {},
+
       center: {
         lat: 52.529746,
         lng: 13.401511
@@ -22,32 +21,32 @@ class MapContainer extends Component {
 
   }
 
-  onMapClicked = props => {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-
-      });
-    }
-  };
+  // onMapClicked = props => {
+  //   if (this.state.showingInfoWindow) {
+  //     this.setState({
+  //       showingInfoWindow: false,
+  //
+  //     });
+  //   }
+  // };
 
   centerMoved(mapProps, map) {
     console.log("dragging");
   }
 
-
-  onMarkerClick = (props, marker, e) =>
-    this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
-    });
+  //
+  // onMarkerClick = (props, marker, e) =>
+  //   this.setState({
+  //     selectedPlace: props,
+  //     activeMarker: marker,
+  //     showingInfoWindow: true
+  //   });
 
 
 
   render() {
-    const { zoom, style, google, locations, currentLocation} = this.props;
-    const { selectedPlace, center } = this.state;
+    const { zoom, style, google, locations, currentLocation, filteredLocations} = this.props;
+    const { center } = this.state;
 
     return (
       <div style={style}>
@@ -74,7 +73,7 @@ class MapContainer extends Component {
             onDragend={this.centerMoved}
           >
 
-            
+
             {currentLocation ? (
               <Marker
                 key={currentLocation.id}
@@ -83,13 +82,12 @@ class MapContainer extends Component {
                   lng: currentLocation.position.lng
                 }}
                 name={currentLocation.name}
-                onClick={this.onMarkerClick}
                 title={currentLocation.title}
                 animation={google.maps.Animation.BOUNCE}
 
               />
             ) : (
-              locations.map(location => (
+              filteredLocations.map(location => (
                 <Marker
                   key={location.id}
                   position={{
@@ -97,24 +95,12 @@ class MapContainer extends Component {
                     lng: location.position.lng
                   }}
                   name={location.name}
-                  onClick={this.onMarkerClick}
+                  onClick={() => this.props.onClick({ ...location })}
                   title={location.title}
                 />
               ))
             )}
 
-            <InfoWindow
-              onOpen={this.windowHasOpened}
-              onClose={this.windowHasClosed}
-              marker={this.state.activeMarker}
-              visible={(currentLocation )? false : this.state.showingInfoWindow}
-
-            >
-              <div>
-                <h1>{selectedPlace.name}</h1>
-                <p>{selectedPlace.title}</p>
-              </div>
-            </InfoWindow>
 
 
           </Map>
