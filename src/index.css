@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800')
 
 body,
@@ -22,7 +23,8 @@ html {
   box-sizing: border-box;
   font-family: "Open Sans", arial, sans-serif;
   font-size: 16px;
-  background-color: AliceBlue;
+  background-color:black
+
 }
 
 *, *::before, *::after {

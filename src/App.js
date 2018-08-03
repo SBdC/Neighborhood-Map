@@ -3,10 +3,12 @@ import { GoogleApiWrapper } from "google-maps-react";
 import * as FlickrAPI from "./utils/FlickrAPI";
 import "./App.css";
 import Header from "./Header.js";
+import Footer from "./Footer.js";
 import MapContainer from "./MapContainer.js";
 import LocationList from "./LocationList.js";
 import Location from "./locations.json";
 import Info from "./InfoWindow.js";
+
 
 class App extends Component {
   constructor(props) {
@@ -67,7 +69,6 @@ class App extends Component {
     });
   }
 
-  // Click function that makes extra info appear
 
 
   onlistClick = location => {
@@ -81,12 +82,7 @@ class App extends Component {
 
 
   selectedMarker = location => {
-    this.setState(
-      {
-        currentLocation: location
-      },
-      this.getFlickrPhoto
-    );
+  this.onlistClick(location)
   };
 
 
@@ -126,7 +122,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <main style={{ display: "flex" }}>
-          <section style={{ flex: 2 }}>
+          <section style={{ flex: 1 }}>
             <LocationList
               locations={this.state.locations}
               onClick={this.onlistClick}
@@ -142,9 +138,8 @@ class App extends Component {
               currentLocation={this.state.currentLocation}
               onClick={this.selectedMarker}
               filteredLocations={this.state.filteredLocations}
-
             />
-            {/* / Extra Infowindow that appears when clicking on the list*/}
+
             <Info
               currentLocation={this.state.currentLocation}
               photos={this.state.photos}
@@ -152,6 +147,7 @@ class App extends Component {
             />
           </section>
         </main>
+        <Footer />
       </div>
     );
   }

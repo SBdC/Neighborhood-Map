@@ -5,7 +5,7 @@ class MapContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showingInfoWindow: false,
+
       activeMarker: {},
 
       center: {
@@ -21,30 +21,10 @@ class MapContainer extends Component {
 
   }
 
-  // onMapClicked = props => {
-  //   if (this.state.showingInfoWindow) {
-  //     this.setState({
-  //       showingInfoWindow: false,
-  //
-  //     });
-  //   }
-  // };
-
-  centerMoved(mapProps, map) {
-    console.log("dragging");
-  }
-
-  //
-  // onMarkerClick = (props, marker, e) =>
-  //   this.setState({
-  //     selectedPlace: props,
-  //     activeMarker: marker,
-  //     showingInfoWindow: true
-  //   });
-
 
 
   render() {
+
     const { zoom, style, google, locations, currentLocation, filteredLocations} = this.props;
     const { center } = this.state;
 
@@ -56,7 +36,8 @@ class MapContainer extends Component {
             containerStyle={{
               width: "100%",
               height: "100vh",
-              position: "relative"
+              position: "relative",
+          
             }}
             initialCenter={{
               lat: this.state.initialCenter.lag,
@@ -69,8 +50,6 @@ class MapContainer extends Component {
                   } : { lat: `${center.lat}`, lng: `${center.lng}` }}
             zoom={currentLocation ? 18 : zoom}
             locations={locations}
-            onClick={this.onMapClicked}
-            onDragend={this.centerMoved}
           >
 
 

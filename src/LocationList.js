@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Search from "./Search.js";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {  faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 class LocationList extends Component {
 
@@ -8,11 +10,12 @@ class LocationList extends Component {
 
     return  (
       <div style={this.props.style}>
-        <div className="App-location-list">
         <Search {...this.props} />
-      
-          <ul className=".location-list">
+        <div className="App-location-list">
+          <ul className="location-list">
             {filteredLocations.map(location => (
+              <div className="list">
+               <div className="icon-arrow"> <FontAwesomeIcon className="arrow" icon ={ faArrowRight }  /></div>
               <li
                 key={location.id}
                 name={location.name}
@@ -20,6 +23,7 @@ class LocationList extends Component {
               >
                 {location.name}
               </li>
+              </div>
             ))}
           </ul>
         </div>

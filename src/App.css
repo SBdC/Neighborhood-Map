@@ -1,14 +1,15 @@
-
 .App {
   text-align: center;
 
 }
 
-
 .App-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   background-color: #222;
-  height: 80px;
+  height: 50px;
   padding: 30px;
   color: white;
   text-transform: uppercase;
@@ -25,44 +26,117 @@
 .App-intro {
   font-size: large;
 }
+
 .App-map {
-
-
- background-color: grey;
+  background-color: grey;
 
 }
 
 .App-location-list {
-height: 100vh;
+
+  height: 100vh;
+  padding:0;
   margin: 0;
   overflow-x: hidden;
   overflow-y: hidden;
+  background-color: red;
 
- background-color: grey;
 }
 
-.location-info{
-  position: absolute;
-  bottom: 20vh;
+.location-list {
 
-  width: 300px;
-  height: 40vh;
+  list-style-type: none;
+  width: 100%;
+  background-color: blue;
+  margin:0;
+
+}
+
+.location-list li {
+    display: flex;
+  list-style-type: none;
   background-color: white;
+  width:100%;
+  text-transform: uppercase;
+  padding:1em;
+  text-align: left;
+  border-bottom: black solid 4px;
+}
 
+.location-list li:hover {
+
+  background-color: yellow;
+  cursor: pointer;
+}
+
+.location-info {
+  position: absolute;
+  top: calc(50vh/2);
+  left: calc(100vw/2);
+  max-width: 400px;
+  max-height: 400px;
   z-index: 9999;
 }
-.location-info-none{
-  display:none;
+
+.location-info-none {
+  display: none;
+}
+
+.flickerPhoto {
+  width: 50%;
+  border-radius: 50%;
+}
+
+.search-locations-bar {
+  display: flex;
+  width: 100%;
+  border-bottom: black solid 4px;
+}
+
+.icon-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 52px;
+  font-size: 20px;
+  background-color: blue;
+}
+
+.icon-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 52px;
+  background-color: yellow;
+  border-bottom: black solid 4px;
 
 }
-.flickerPhoto{
-  width: 40%;
+
+.list {
+  display: flex;
+  margin-left: -40px;
+
+
 }
 
 .search-locations-bar input {
-  width: 100%;
+  width:100%;
   padding: 15px 10px;
-  font-size: 1.25em;
+  font-size: 0.8em;
   border: none;
   outline: none;
+}
+
+
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.8em;
+  padding-left: 10px;
+  padding-top: 1px;
+  width: 100%;
+  color: white;
+  background-color: black;
 }
