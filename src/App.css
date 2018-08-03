@@ -73,9 +73,11 @@
   position: absolute;
   top: calc(50vh/2);
   left: calc(100vw/2);
-  max-width: 400px;
-  max-height: 400px;
+width:20%;
+height: 20%;;
   z-index: 9999;
+  background-color: white;
+  border: black solid 4px;
 }
 
 .location-info-none {
@@ -111,6 +113,22 @@
   border-bottom: black solid 4px;
 
 }
+.icon-arrow {
+
+
+  min-width: 52px;
+  border-bottom: black solid 4px;
+
+}
+button{
+  display: absolute;
+  border: none;
+  background-color: white;
+
+
+}
+
+
 
 .list {
   display: flex;
