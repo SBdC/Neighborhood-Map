@@ -4,7 +4,8 @@
     "id": "Addeertz",
     "type": "Store",
     "title": "Menswear ",
-    "address": "Torstrasse 106, 10119 Berlin",
+    "street": "Torstrasse 106",
+    "zip":"10119 Berlin",
     "position": {
       "lat": 52.5296,
       "lng": 13.403557
@@ -15,7 +16,8 @@
     "id": "Wolfen",
     "type": "Store",
     "title": "Womenswear / Menswear",
-    "address": "Augustrasse 41, 10119 Berlin",
+    "street": "Augustrasse 41",
+    "zip":"10119 Berlin",
     "position": {
       "lat": 52.527909,
       "lng": 13.402229
@@ -27,7 +29,8 @@
     "id": "Konk",
     "type": "Store",
     "title": "Womenswear",
-    "address": "Kleine Hamburger Str. 15, 10117 Berlin",
+    "street": "Kleine Hamburger Str. 15",
+    "zip": "10117 Berlin",
     "position": {
       "lat": 52.527913,
       "lng": 13.396979
@@ -39,7 +42,8 @@
     "id": "Garments",
     "type": "Store",
     "title": "Vintage",
-    "address": "Linienstrasse 204, 10119 Berlin",
+    "street": "Linienstrasse 204",
+    "zip": "10119 Berlin",
     "position": {
       "lat": 52.529497,
       "lng": 13.402497
@@ -50,7 +54,8 @@
     "id": "Starstyling",
     "type": "Store",
     "title": "Womenswear / Menswear",
-    "address": "Mulackstraße 4, 10119 Berlin",
+    "street": "Mulackstraße 4",
+    "zip": "10119 Berlin", 
     "position": {
       "lat": 52.528105,
       "lng": 13.407322
