@@ -49,7 +49,7 @@ class MapContainer extends Component {
                     lat: `${currentLocation.position.lat}`,
                     lng: `${currentLocation.position.lng}`
                   } : { lat: `${center.lat}`, lng: `${center.lng}` }}
-            zoom={currentLocation ? 18 : zoom}
+            zoom={currentLocation ? 17 : zoom}
             locations={locations}
           >
 

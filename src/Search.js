@@ -9,7 +9,7 @@ const Search = (props) => {
   return(
     <div>
       <form className="search-locations-bar">
-       <div className="icon-search"> <FontAwesomeIcon icon={ faSearch }  /></div>
+       <div className="icon-search"> <FontAwesomeIcon icon={ faSearch } /></div>
         <input
           type="text"
           placeholder= "Search locations"

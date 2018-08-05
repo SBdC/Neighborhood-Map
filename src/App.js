@@ -19,7 +19,7 @@ class App extends Component {
         lat: 52.529746,
         lng: 13.401511
       },
-      zoom: 15,
+      zoom: 16,
       currentLocation: "",
       photos: [],
       query: "",
@@ -105,7 +105,7 @@ class App extends Component {
     }
   };
 
-
+//Close infoWindow
 
   closeInfo = () => {
     this.setState({
@@ -115,12 +115,24 @@ class App extends Component {
 };
 
 
+
+
+
+toggleList = () => {
+  let el = document.querySelector('.locationList');
+   el.classList.toggle('locationList-open');
+
+};
+
+
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header
+         onClick={this.toggleList}
+        />
         <main className="main-wrapper">
-          <section style={{ flex: 1 }}>
+          <section className="locationList">
             <LocationList
               locations={this.state.locations}
               onClick={this.onlistandMarkerClick}
@@ -130,7 +142,7 @@ class App extends Component {
               currentLocation={this.state.currentLocation}
             />
           </section>
-          <section style={{ flex: 5 }}>
+          <section className="mapContainer">
             <MapContainer
               google={this.props.google}
               locations={this.state.locations}
