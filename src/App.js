@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   getFlickrPhoto() {
-    FlickrAPI.getFlickrPhoto(this.state.currentLocation.name)
+    FlickrAPI.getFlickrPhoto(this.state.currentLocation.id)
       .then(data => {
         let picArray = data.photos.photo.map(pic => {
           let srcPath =
@@ -121,6 +121,11 @@ class App extends Component {
 toggleList = () => {
   let el = document.querySelector('.locationList');
    el.classList.toggle('locationList-open');
+   this.setState({
+     currentLocation: '',
+     query:''
+
+ });
 
 };
 

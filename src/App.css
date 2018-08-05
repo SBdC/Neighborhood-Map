@@ -120,7 +120,8 @@
 }
 
 .icon-frown {
-  font-size: 3em;
+  font-size: 6em;
+  margin-bottom: 20px;
   color: white;
 }
 
@@ -133,10 +134,10 @@
 
 .location-info {
   position: absolute;
-  top: 12vh;
+  top: 10vh;
   left: calc(100vw/2);
   width: 250px;
-  max-height: 207px;
+  height: inherit;
   z-index: 9999;
   background-color: red;
   border-top: black solid 4px;
@@ -167,69 +168,45 @@ button {
   border-top: black solid 4px;
   border-bottom: black solid 2px;
   text-align: left;
-  padding: 4px;
+  padding: 6px;
   text-transform: uppercase;
 }
 
 .info-p {
-  font-size: 8px;
-  background-color: blue;
-  color: white;
+  padding: 6px;
+  font-size: 0.6em;
+  background-color: white;
+  color: black;
   font-weight: 400;
   margin: 0;
   border-top: black solid 2px;
   border-bottom: black solid 4px;
   text-align: left;
-  padding: 4px;
-}
-
-.info-add {
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  line-height: 5px;
-  background-color: white;
-  border-left: black solid 4px;
-
 }
 
 .info-img {
-  width: 40%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-
   justify-content: center;
 }
 
-.info-add-p {
-  line-height: 12px;
-  font-size: 0.7em;
-  color: black;
-  text-transform: uppercase;
-}
-
 .flickerPhoto {
-  max-height: 120px;
   max-width: 100%;
-
-  border-right: black solid 4px;
   display: flex;
+  border-bottom: black solid 4px;
 }
 
 .pic-add-wrapper {
   display: flex;
   background-color: black;
-  border-bottom: black solid 4px
 }
-
 
 /*footer*/
 
 .footer {
   position: fixed;
   bottom: 0;
-
   font-size: 0.8em;
   padding-left: 10px;
   padding-top: 1px;
@@ -238,108 +215,91 @@ button {
   background-color: black;
 }
 
-
-
-
 /*media queries*/
-
 
 .hamburger-menu {
   display: none;
   cursor: pointer;
-
 }
 
-.hamburger-menu  {
+.hamburger-menu {
   display: none;
-
 }
 
 @media only screen and (max-width: 644px) {
   .locationList {
     display: none;
-    border: black solid 6px;
+    border-bottom: none;
   }
   .locationList-open {
     display: block;
-
+    position: absolute;
+    border: black solid 4px;
+    border-bottom: black solid 1px;
+    border-left: black solid 6px;
+    z-index: 9999;
+    width: 260px;
   }
-
   .main-wrapper {
     display: block;
   }
-
   .mapContainer {
-    display:block;
+    display: block;
   }
-
   .location-info {
     left: 100px;
   }
   .App-title {
-    font-size: 0.6em;
+    font-size: 0.8em;
 
   }
+
+  .App-header{
+    justify-content: space-between;
+  }
+
+
   .hamburger-menu {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+
     left: 20px;
     color: white;
-    margin-right: 55px;
-    margin-left: -5px;
+
   }
   .location-info {
-
-    top: calc(45vh);
-    left: calc(10vw);
-
-  }
-  .info-add-p {
-    line-height: 12px;
-    font-size: 0.6em;
-
+    position: absolute;
+    top: 100px;
+    left: 300px;
+    width:40%;
   }
   .info-p {
-  display:none;
+    font-size: 0.7em;
+    text-align: right;
   }
-
-
   .info-heading {
-
-    border-bottom: black solid 4px;
-
+    font-size: 0.9em;
   }
-
   /*location list and search*/
-
-
+  .icon-search {
+    font-size: 1em;
+  }
+  .icon-arrow {
+    font-size: 0.8em;
+  }
   .location-list li {
-
     width: 100%;
     font-size: 0.6em;
-
-    padding:0.5em;
+    padding: 0.8em;
     text-align: left;
     border-bottom: black solid 4px;
   }
-
-
-
   .search-locations-bar input {
-    padding: 15px 10px;
-    font-size: 0.8em;
-    border: none;
+    padding: 10px;
+    font-size: 0.6em;
     width: 100%;
   }
-
-
-
   .footer {
-
     font-size: 0.6em;
-
   }
-
-
 }

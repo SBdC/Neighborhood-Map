@@ -1,7 +1,7 @@
 [
   {
-    "name": "a.d.deertz",
-    "id": "Addeertz",
+    "name": "Addeertz",
+    "id": "AddeertzStore",
     "type": "Store",
     "title": "Menswear ",
     "street": "Torstrasse 106",
@@ -13,7 +13,7 @@
   },
   {
     "name": "Wolfen",
-    "id": "Wolfen",
+    "id": "WolfenStore",
     "type": "Store",
     "title": "Womenswear / Menswear",
     "street": "Augustrasse 41",
@@ -26,7 +26,7 @@
 
   {
     "name": "Konk ",
-    "id": "Konk",
+    "id": "KonkStore",
     "type": "Store",
     "title": "Womenswear",
     "street": "Kleine Hamburger Str. 15",
@@ -39,7 +39,7 @@
 
   {
     "name": "Garments",
-    "id": "Garments",
+    "id": "etsyvintageclothingcuriousknopfberlingermany",
     "type": "Store",
     "title": "Vintage",
     "street": "Linienstrasse 204",
@@ -55,7 +55,7 @@
     "type": "Store",
     "title": "Womenswear / Menswear",
     "street": "Mulackstraße 4",
-    "zip": "10119 Berlin", 
+    "zip": "10119 Berlin",
     "position": {
       "lat": 52.528105,
       "lng": 13.407322
