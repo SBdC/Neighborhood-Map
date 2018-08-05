@@ -30,7 +30,6 @@ class App extends Component {
 
   componentDidMount() {
     this.getLocations();
-
   }
 
   getFlickrPhoto() {
@@ -71,7 +70,7 @@ class App extends Component {
 
 
 
-  onlistClick = location => {
+  onlistandMarkerClick = location => {
     this.setState(
       {
         currentLocation: location
@@ -81,29 +80,28 @@ class App extends Component {
   };
 
 
-  selectedMarker = location => {
-  this.onlistClick(location)
-  };
-
-
 
   // Search function
 
   updateQuery = (query) => {
+    this.setState({currentLocation: "" });
+    this.setState({ query: query.substr(0,15) });
 
-    this.setState({ query });
 
     if (query) {
-      const filteredLocations = this.state.locations.filter(location => {
+        const filteredLocations = this.state.locations.filter(location => {
         const loc = location.name.toLowerCase();
         const q = query.toLowerCase();
-        return loc.indexOf(q) !==-1;
+        return loc.indexOf(q) === 0;
       });
       this.setState({ filteredLocations });
-    } else {
+
+    }
+     else {
       this.setState({
         filteredLocations: this.state.locations
       });
+
     }
   };
 
@@ -111,7 +109,7 @@ class App extends Component {
 
   closeInfo = () => {
     this.setState({
-      currentLocation: '',
+      currentLocation: ''
 
   });
 };
@@ -121,14 +119,15 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <main style={{ display: "flex" }}>
+        <main className="main-wrapper">
           <section style={{ flex: 1 }}>
             <LocationList
               locations={this.state.locations}
-              onClick={this.onlistClick}
+              onClick={this.onlistandMarkerClick}
               updateQuery={this.updateQuery}
               query={this.state.query}
               filteredLocations={this.state.filteredLocations}
+              currentLocation={this.state.currentLocation}
             />
           </section>
           <section style={{ flex: 5 }}>
@@ -136,7 +135,7 @@ class App extends Component {
               google={this.props.google}
               locations={this.state.locations}
               currentLocation={this.state.currentLocation}
-              onClick={this.selectedMarker}
+              onClick={this.onlistandMarkerClick}
               filteredLocations={this.state.filteredLocations}
             />
 

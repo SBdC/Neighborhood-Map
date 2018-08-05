@@ -30,14 +30,15 @@ class MapContainer extends Component {
 
     return (
       <div style={style}>
-        <div className="App-map">
+        <div >
           <Map
             google={google}
             containerStyle={{
+              border: "black solid 6px",
               width: "100%",
               height: "100vh",
               position: "relative",
-          
+
             }}
             initialCenter={{
               lat: this.state.initialCenter.lag,

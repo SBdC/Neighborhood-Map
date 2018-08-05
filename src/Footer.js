@@ -4,7 +4,7 @@ const Footer = () => (
 
   <div>
     <footer className="footer">
-      <p>Udacity P8 Neighboorhood Maps by Sara Bento de castro</p>
+      <p>Udacity P8 Neighboorhood Maps by Sara Bento de Castro</p>
     </footer>
   </div>
 
