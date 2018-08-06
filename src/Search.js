@@ -13,7 +13,7 @@ const Search = (props) => {
         <input
           type="text"
           placeholder= "Search locations"
-          tabindex="2"
+          tabIndex="2"
           role="search"
           onChange={(event) => props.updateQuery(event.target.value)}
           value={props.query}
