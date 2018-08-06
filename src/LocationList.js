@@ -11,7 +11,7 @@ const LocationList = (props) => {
       <div style={props.style}>
         <Search {...props} />
         <div className="App-location-list">
-          <p> No results found</p>
+          <p tabIndex='3'> No results found</p>
           <div className="icon-frown"> <FontAwesomeIcon icon ={ faFrown } /></div>
         </div>
     </div>
@@ -23,7 +23,7 @@ const LocationList = (props) => {
   return(
     <div style={props.style}>
       <Search {...props} />
-      <div className="App-location-list">
+      <nav className="App-location-list">
         <ul className="location-list">
 
           {props.filteredLocations.map(location => (
@@ -31,16 +31,20 @@ const LocationList = (props) => {
               key={location.id}>
              <div className="icon-arrow"> <FontAwesomeIcon className="arrow" icon ={ faArrowRight }  /></div>
             <li
-
+              tabIndex='3'
+              role='tab'
+              aria-setsize='6'
+              aria-posinset={location.id}
               name={location.name}
               onClick={() => props.onClick({ ...location })}
+              onKeyPress={() => props.onClick({ ...location })}
             >
               {location.name}
             </li>
             </div>
           ))}
         </ul>
-      </div>
+      </nav>
   </div>
   )
 
