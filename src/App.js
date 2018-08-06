@@ -1,13 +1,14 @@
-import React, { Component } from "react";
-import { GoogleApiWrapper } from "google-maps-react";
-import * as FlickrAPI from "./utils/FlickrAPI";
-import "./App.css";
-import Header from "./Header.js";
-import Footer from "./Footer.js";
-import MapContainer from "./MapContainer.js";
-import LocationList from "./LocationList.js";
-import Location from "./locations.json";
-import Info from "./InfoWindow.js";
+import React, { Component } from "react"
+import { GoogleApiWrapper } from "google-maps-react"
+import * as FlickrAPI from "./utils/FlickrAPI"
+import "./App.css"
+import Header from "./Header.js"
+import Footer from "./Footer.js"
+import MapContainer from "./MapContainer.js"
+import LocationList from "./LocationList.js"
+import Location from "./locations.json"
+import Info from "./InfoWindow.js"
+
 
 
 class App extends Component {
@@ -23,7 +24,8 @@ class App extends Component {
       currentLocation: "",
       photos: [],
       query: "",
-      filteredLocations: []
+      filteredLocations: [],
+      flickrError: false
 
     };
   }
@@ -54,7 +56,11 @@ class App extends Component {
           photos: picArray
         });
       })
-      .catch(error => console.log(error));
+      .catch(err => {
+            this.setState({
+                flickrError: true
+            })
+        })
   }
 
 
@@ -145,6 +151,7 @@ toggleList = () => {
               query={this.state.query}
               filteredLocations={this.state.filteredLocations}
               currentLocation={this.state.currentLocation}
+
             />
           </section>
           <section className="mapContainer">
@@ -160,6 +167,7 @@ toggleList = () => {
               currentLocation={this.state.currentLocation}
               photos={this.state.photos}
               closeInfo={this.closeInfo}
+              flickrError={this.state.flickrError}
             />
           </section>
         </main>

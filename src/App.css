@@ -215,6 +215,24 @@ button {
   background-color: black;
 }
 
+/*errors*/
+.error{
+  font-size: 0.7em;
+  color:white;
+  padding: 10px;
+  line-height: 20px;
+
+}
+
+.icon-frown-api{
+  font-size: 4em;
+    color:white;
+    margin-bottom: 20px;
+    margin-top: -10px;
+
+}
+
+
 /*media queries*/
 
 .hamburger-menu {
