@@ -14,12 +14,10 @@ Clicking on a marker or on a list on the item will make a infowindow appear with
 2.Install all project dependencies with `npm install`
 
 3.Install the dependencies for FontAwesome
-<hr />
-`$ npm i --save @fortawesome/fontawesome-svg-core@prerelease`
-<hr />
-`$ npm i --save @fortawesome/free-solid-svg-icons@prerelease`
-<hr />
-`$ npm i --save @fortawesome/react-fontawesome@prerelease`
+
+- `$ npm i --save @fortawesome/fontawesome-svg-core@prerelease`
+- `$ npm i --save @fortawesome/free-solid-svg-icons@prerelease`
+- `$ npm i --save @fortawesome/react-fontawesome@prerelease`
 
 4.Start the development server with `npm start`
 
