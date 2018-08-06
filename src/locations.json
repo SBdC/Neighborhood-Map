@@ -7,8 +7,8 @@
     "street": "Torstrasse 106",
     "zip":"10119 Berlin",
     "position": {
-      "lat": 52.5296,
-      "lng": 13.403557
+      "lat": 52.529682,
+      "lng": 13.403402
     }
   },
   {
@@ -19,8 +19,8 @@
     "street": "Augustrasse 41",
     "zip":"10119 Berlin",
     "position": {
-      "lat": 52.527909,
-      "lng": 13.402229
+      "lat": 52.527904,
+      "lng": 13.402198
     }
   },
 
@@ -32,8 +32,8 @@
     "street": "Kleine Hamburger Str. 15",
     "zip": "10117 Berlin",
     "position": {
-      "lat": 52.527913,
-      "lng": 13.396979
+      "lat": 52.527248,
+      "lng": 13.396785
     }
   },
 
@@ -45,8 +45,8 @@
     "street": "Linienstrasse 204",
     "zip": "10119 Berlin",
     "position": {
-      "lat": 52.529497,
-      "lng": 13.402497
+      "lat": 52.528911,
+      "lng": 13.402287
     }
   },
   {
@@ -57,8 +57,8 @@
     "street": "Mulackstraße 4",
     "zip": "10119 Berlin",
     "position": {
-      "lat": 52.528105,
-      "lng": 13.407322
+      "lat": 52.527160,
+      "lng": 13.407275
     }
   }
 ]
