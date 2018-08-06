@@ -12,7 +12,7 @@ const LocationList = (props) => {
         <Search {...props} />
         <div className="App-location-list">
           <p> No results found</p>
-          <div className="icon-frown"> <FontAwesomeIcon className="arrow" icon ={ faFrown }  /></div>
+          <div className="icon-frown"> <FontAwesomeIcon icon ={ faFrown } /></div>
         </div>
     </div>
     );

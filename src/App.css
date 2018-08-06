@@ -1,10 +1,12 @@
+
+
 .App {
   text-align: center;
 }
 
 .main-wrapper {
   display: flex;
-  background-color: red;
+  background-color: black;
 }
 
 .App-header {

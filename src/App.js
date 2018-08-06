@@ -11,6 +11,18 @@ import Info from "./InfoWindow.js"
 
 
 
+ window.gm_authFailure = ()=> {
+const map = document.querySelector(".mapContainer");
+map.innerHTML = `<h2>We are sorry to inform that the map couldn't load due to a Google Maps Error</h2> `;
+map.style.display = "block";
+map.style.color = "white";
+map.style.fontSize = "0.5em";
+map.style.padding = "200px";
+console.log("nop")
+};
+
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -25,10 +37,12 @@ class App extends Component {
       photos: [],
       query: "",
       filteredLocations: [],
-      flickrError: false
+      flickrError: false,
+
 
     };
   }
+
 
   componentDidMount() {
     this.getLocations();
